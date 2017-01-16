@@ -28,4 +28,10 @@ app.use(_.get('/coords/:lat/:lon', function * (lat, lon) {
   })
 }))
 
+app.use(_.get('/location/:country/:city', function * (country, city) {
+  yield getForecast({q: `${city},${country}`}).then((forecast) => {
+    this.body = forecast
+  })
+}))
+
 app.listen(3000)
