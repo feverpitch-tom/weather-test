@@ -16,8 +16,12 @@ const geoip = require('geoip-lite')
 
 // Load local env file
 const path = require('path')
-const env = require('node-env-file')
-env(path.join(__dirname, '.env'))
+const fs = require('fs')
+
+if (fs.existsSync('.env')) {
+  const env = require('node-env-file')
+  env(path.join(__dirname, '.env'))
+}
 
 function getForecast (opts) {
   opts = Object.assign(opts, { appid: process.env.OPENWEATHERMAP_API_KEY })
