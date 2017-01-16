@@ -7,8 +7,12 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tom Groves",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/feverpitch-tom/weather-test.git"
+  },
   "dependencies": {
     "bluebird": "^3.4.7",
     "geoip-lite": "^1.1.8",
