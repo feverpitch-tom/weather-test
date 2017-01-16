@@ -14,8 +14,13 @@ const queryString = require('query-string')
 // geoip lookup
 const geoip = require('geoip-lite')
 
+// Load local env file
+const path = require('path')
+const env = require('node-env-file')
+env(path.join(__dirname, '.env'))
+
 function getForecast (opts) {
-  opts = Object.assign(opts, { appid: config.openWeatherMap.apiKey })
+  opts = Object.assign(opts, { appid: process.env.OPENWEATHERMAP_API_KEY })
   let endpoint = `http://api.openweathermap.org/data/2.5/forecast?${queryString.stringify(opts)}`
   return fetch(endpoint).then((res) => res.json())
 }

@@ -15,6 +15,7 @@
     "koa": "^1.2.4",
     "koa-route": "^2.4.2",
     "koa-static": "^2.0.0",
+    "node-env-file": "^0.1.8",
     "node-fetch": "^1.6.3",
     "query-string": "^4.3.1"
   }
