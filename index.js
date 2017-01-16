@@ -34,4 +34,10 @@ app.use(_.get('/location/:country/:city', function * (country, city) {
   })
 }))
 
+app.use(_.get('/id/:id', function * (id) {
+  yield getForecast({id}).then((forecast) => {
+    this.body = forecast
+  })
+}))
+
 app.listen(3000)
