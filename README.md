@@ -44,7 +44,7 @@ process.
 
 ## Testing the application
 The application is deployed in AWS as a Docker Cloud managed service.  It is accessible
-at the endpoint `http://weather-1403da8d-1.660a0c6b.cont.dockerapp.io/`.
+at the endpoint `http://weather-1403da8d.7780da50.svc.dockerapp.io/`.
 
 It is set up for continuous deployment; merges into the repository's master branch
 will result in Docker Cloud building a new image and redeploying to AWS.
@@ -56,29 +56,29 @@ Retrieved the forecast for the given IP address, or if it is not specified then
 for the IP address of the calling application/user.  Attempts to resolve external
 IP address when the caller is on a local IP address (see the Overview above).
 
-- [Example - Jersey IP Address](http://weather-1403da8d-1.660a0c6b.cont.dockerapp.io/api/ip/213.133.202.18)
-- [Example - Your current detected IP](http://weather-1403da8d-1.660a0c6b.cont.dockerapp.io/api/ip)
+- [Example - Jersey IP Address](http://weather-1403da8d.7780da50.svc.dockerapp.io/api/ip/213.133.202.18)
+- [Example - Your current detected IP](http://weather-1403da8d.7780da50.svc.dockerapp.io/api/ip)
 
 ### Co-ordinates
 `http://[endpoint]/api/coords/:lat/:lon`
 
 Retrieves the forecast for a latitude + longitude.
 
-- [Example - The White House, Washington DC](http://weather-1403da8d-1.660a0c6b.cont.dockerapp.io/api/coords/38.8977/-77.0365)
+- [Example - The White House, Washington DC](http://weather-1403da8d.7780da50.svc.dockerapp.io/api/coords/38.8977/-77.0365)
 
 ### Location (City + Country)
 `http://[endpoint]/api/location/:country/:city`
 
 Retrieves the forecast for a city + country.
 
-- [Example - London, GB](http://weather-1403da8d-1.660a0c6b.cont.dockerapp.io/api/location/gb/london)
+- [Example - London, GB](http://weather-1403da8d.7780da50.svc.dockerapp.io/api/location/gb/london)
 
 ### ID
 `http://[endpoint]/api/id/:id`
 
 Retrieves the forecast for a city by OpenWeatherMap ID.
 
-- [Example - Paris (id 2988507)](http://weather-1403da8d-1.660a0c6b.cont.dockerapp.io/api/id/2988507)
+- [Example - Paris (id 2988507)](http://weather-1403da8d.7780da50.svc.dockerapp.io/api/id/2988507)
 
 ## Technical debt
 
