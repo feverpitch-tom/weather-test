@@ -25,23 +25,27 @@ function * ip (address) {
 
   for (let ix in config.geoip.private) {
     if (address.match(config.geoip.private[ix])) {
+      address = null
       yield fetch('https://api.ipify.org?format=json')
         .then((res) => res.json())
         .then((res) => {
           if (res && res.ip) {
-            return this.redirect(`/api/ip/${res.ip}`)
+            address = res.ip
           }
-
-          this.status = 500
-          this.body = 'IP is in a local range, but cannot detect public Internet IP'
         })
-      return
+
+      if (address) {
+        return yield ip.call(this, address)
+      }
+
+      this.status = 500
+      this.body = 'IP is in a local range, but cannot detect public Internet IP'
     }
   }
 
   var test = geoip.lookup(address)
   if (test && Array.isArray(test.ll) && test.ll.length === 2) {
-    return this.redirect(`/api/coords/${test.ll[0]}/${test.ll[1]}`)
+    return yield coords.call(this, test.ll[0], test.ll[1])
   }
 
   this.status = 500
@@ -70,4 +74,5 @@ module.exports = {
   ip,
   coords,
   location,
-id}
+  id
+}
