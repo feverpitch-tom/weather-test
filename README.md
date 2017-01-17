@@ -22,6 +22,9 @@ The environment variable can be set using an env file (see above), or
 otherwise in the normal way for your OS.
 
 ## Running the application locally
+Before running the application locally you should install the npm package dependencies
+using the command `npm install`.
+
 ### Command Line
 The application can be run from the command line by running the following command
 in the repository root:
